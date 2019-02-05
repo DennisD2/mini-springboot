@@ -1,21 +1,17 @@
 package de.spurtikus.mini;
 
+import org.springframework.web.bind.annotation.*;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class MiniController {
-    private static final String template = "Hello, %s!";
+    private static final String template = "Echo says: %s";
     
-    @RequestMapping("/echo")
-    public String hello(@RequestParam(value="name", defaultValue="World") String name) {
+    @RequestMapping(value = "/echo/{name}", method = RequestMethod.GET)
+    public String hello(@PathVariable("name") String name) {
         return String.format(template, name);
     }
 
