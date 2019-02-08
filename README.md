@@ -7,7 +7,7 @@ The REST service is implemented using Spring Boot REST.
 The dependencies include some modules removed from JDK 9 onwards. 
 I assume the application runs on JDK 1.8, 9 10, and 11.
 
-Tested with JDK 11.
+Tested with JDK 11. 
 
 # Call example
 
